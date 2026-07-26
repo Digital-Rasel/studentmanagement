@@ -20,37 +20,12 @@
     <title>Admin Dashboard</title>
 </head>
 <body>
-    <header class="header">
-        <a href="">Admin Dashboard</a>
-        <div class="logout">
-        <a href="logout.php" class="btn btn-primary">Logout</a>
+     <?php
+    include"admin_sidebar.php";
+    ?>
+    <div class="container">
+        <h1>Admin Dashboard</h1>
     </div>
-    </header>
-    <aside>
-        <ul>
-            <li>
-                <a href="">Admission</a>
-            </li>
-             <li>
-                <a href="">Add Student</a>
-            </li>
-             <li>
-                <a href="">View Student</a>
-            </li>
-             <li>
-                <a href="">Add Teacher</a>
-            </li>
-             <li>
-                <a href="">View Teacher</a>
-            </li>
-            <li>
-                <a href="">Add Course</a>
-            </li>
-            <li>
-                <a href="">View Course</a>
-            </li>
-        </ul>
-    </aside>
     
 
 </body>
