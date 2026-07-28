@@ -21,15 +21,29 @@
         $user_password = $_POST["password"];
         $usertype = "student";
 
-        $sql = "INSERT INTO user (username, email, phone, password ) VALUES ('$username', '$user_email', '$user_phone', '$user_password')";
+        $check = "SELECT * FROM user WHERE username='$username'";
+        $check_user = mysqli_query($data,$check);
+        $row_count = mysqli_num_rows($check_user);
+
+        if ($row_count == 1) {
+        echo"<script type='text/javascript'>
+            alert('Username already exist. Try another one.');
+            </script>";
+        }
+        else {
+
+        $sql = "INSERT INTO user (username, email, phone, usertype, password ) VALUES ('$username', '$user_email', '$user_phone', '$usertype', '$user_password')";
         $result = mysqli_query($data,$sql);
 
         if ($result) {
-            echo"Data Uploaded Successfully.";
+            echo"<script type='text/javascript'>
+            alert('Data Uploaded Successfully.');
+            </script>";
         } else {
             echo "Uploaded Failed";
 
         }
+    }
     }
 ?>
 
