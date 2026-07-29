@@ -13,7 +13,7 @@
     $db ="trainingproject";
 
     $data = mysqli_connect ($host, $user, $password, $db);
-    $sql = "SELECT * FROM user";
+    $sql = "SELECT * FROM user WHERE usertype='student'";
 
     $result = mysqli_query($data, $sql);
 ?>
@@ -32,9 +32,11 @@
      <?php
     include"admin_sidebar.php";
     ?>
-    <center> 
+    
     <div class="container">
+        <center> 
         <h1>Student Data</h1>
+        <br>
         
         <table class="table table-bordered table-success table-striped" >
             <tr>
@@ -57,9 +59,9 @@
             }
             ?>
         </table>
-    
+        </center>
     </div>
-    </center>
+    
     
 
 </body>
