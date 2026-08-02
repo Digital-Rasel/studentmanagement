@@ -1,4 +1,5 @@
 <?php
+    error_reporting(0);
     session_start();
     if(!isset($_SESSION["username"]) ){
     header("location: login.php");
@@ -36,6 +37,12 @@
     <div class="container">
         <center> 
         <h1>Student Data</h1>
+        <?php
+        if ($_SESSION['message']) {
+            echo $_SESSION['message'] ;
+        }
+        unset($_SESSION['message']);
+        ?>
         <br>
         
         <table class="table table-bordered table-success table-striped" >
@@ -44,6 +51,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Password</th>
+                <th>Delete</th>
             </tr>
             <?php
             while ($info = $result->fetch_assoc()) {
@@ -54,6 +62,8 @@
                 <td><?php echo "{$info['email']}" ?> </td>
                 <td><?php echo "{$info['phone']}" ?> </td>
                 <td><?php echo "{$info['password']}" ?> </td>
+                <td><?php echo "<a onClick= \"javascript:return confirm('Are you sure to delete this?');\" href='delete.php?student_id={$info['id']}'>Delete</a>" ?> </td>
+
             </tr>
             <?php
             }
