@@ -52,6 +52,7 @@
                 <th>Phone</th>
                 <th>Password</th>
                 <th>Delete</th>
+                <th>Update</th>
             </tr>
             <?php
             while ($info = $result->fetch_assoc()) {
@@ -62,7 +63,8 @@
                 <td><?php echo "{$info['email']}" ?> </td>
                 <td><?php echo "{$info['phone']}" ?> </td>
                 <td><?php echo "{$info['password']}" ?> </td>
-                <td><?php echo "<a onClick= \"javascript:return confirm('Are you sure to delete this?');\" href='delete.php?student_id={$info['id']}'>Delete</a>" ?> </td>
+                <td><?php echo "<a class='btn btn-danger' onClick= \"javascript:return confirm('Are you sure to delete this?');\" href='delete.php?student_id={$info['id']}'>Delete</a>" ?> </td>
+                <td><?php echo "<a class='btn btn-primary' onClick= \"javascript:return confirm('Are you sure to update this?');\" href='update_student.php?student_id={$info['id']}'>Update</a>" ?> </td>
 
             </tr>
             <?php
