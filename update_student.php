@@ -19,6 +19,21 @@
     $result = mysqli_query($data,$sql);
     $info = $result->fetch_assoc();
 
+    if (isset ($_POST['update'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $phone = $_POST['phone'];
+    $password = $_POST['password'];
+
+    $query = "UPDATE user SET username='$name', email='$email', phone='$phone', password = '$password' WHERE id='$id'";
+    $result2 = mysqli_query($data,$query);
+
+    if ($result2) {
+        header("location: view_student.php");
+    }
+
+    }
+
 ?>
 
     
